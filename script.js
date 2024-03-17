@@ -2,7 +2,7 @@
 // The formula for calculating the area of a circle is PI multiplied by the radius, squared:
 // const PI = 3.1415;
 // const area = PI * radius * radius;
-console.log('PART 1','\n');
+console.log('PART 1', '\n');
 var radius = 5;
 const PI = 3.1415;
 const area = PI * radius * radius;
@@ -35,11 +35,11 @@ console.log(`${plantGrowthWeek1} planted with area of ${areaWeek1} square meters
 // This condition should be met if the plant count after the given number of weeks is less
 // than 50% of the maximum capacity of the garden.
 
-if(plantGrowthWeek1 > area*0.8){
+if (plantGrowthWeek1 > area * 0.8) {
     console.log('plants to prune! ☠️')
-}else if(plantGrowthWeek1 > area*0.5 && plantGrowthWeek1 <area*0.8){
+} else if (plantGrowthWeek1 > area * 0.5 && plantGrowthWeek1 < area * 0.8) {
     console.log('plants to monitor!🤓')
-}else{
+} else {
     console.log('plant more!🌴')
 }
 
@@ -49,26 +49,26 @@ var plantGrowthWeek2 = plantNumber * growthRate * week;
 var areaWeek2 = plantGrowthWeek2 * 0.8;
 console.log(`${plantGrowthWeek2} planted with area of ${areaWeek2} square meters during week 2.`);
 
-if(plantGrowthWeek2 > area*0.8){
+if (plantGrowthWeek2 > area * 0.8) {
     console.log('plants to prune! ☠️')
-}else if(plantGrowthWeek2 > area*0.5 && plantGrowthWeek2 <area*0.8){
+} else if (plantGrowthWeek2 > area * 0.5 && plantGrowthWeek2 < area * 0.8) {
     console.log('plants to monitor!🤓')
-}else{
+} else {
     console.log('plant more!🌴')
 }
 
 var week = 3;
 console.log(`weeks grown ${week}`);
-var plantGrowthWeek3 = plantNumber * growthRate * week;
-var areaWeek3 = plantGrowthWeek3 * 0.8;
-console.log(`${plantGrowthWeek3} planted with area of ${areaWeek3} square meters during week 3.`);
+var plantNumber = plantNumber * growthRate * week;
+var areaWeek3 = plantNumber * 0.8;
+console.log(`${plantNumber} planted with area of ${areaWeek3} square meters during week 3.`);
 
-if(plantGrowthWeek3 > area*0.8){
-    console.log('plants to prune! ☠️','\n','\n','\n')
-}else if(plantGrowthWeek3 > area*0.5 && plantGrowthWeek3 <area*0.8){
-    console.log('plants to monitor!🤓','\n','\n','\n')
-}else{
-    console.log('plant more!🌴','\n','\n','\n');
+if (plantNumber > area * 0.8) {
+    console.log('plants to prune! ☠️', '\n', '\n', '\n')
+} else if (plantNumber > area * 0.5 && plantNumber < area * 0.8) {
+    console.log('plants to monitor!🤓', '\n', '\n', '\n')
+} else {
+    console.log('plant more!🌴', '\n', '\n', '\n');
 }
 
 //part 2
@@ -76,18 +76,25 @@ if(plantGrowthWeek3 > area*0.8){
 // plants, and did not prune them for 10 weeks.
 // If the space remained circular, what would be the radius of this expanded garden?
 console.log('PART 2');
-var plantNumber= 100;
-week =10;
+var plantNumber = 100;
+week = 10;
 console.log(`if started with ${plantNumber} number of trees in week 1`);
 var plantGrowthWeek10 = plantNumber * growthRate * week;
-requiredAreaFor100 = plantGrowthWeek10*requiredArea;
+requiredAreaFor100 = plantGrowthWeek10 * requiredArea;
 console.log(`required area for ${plantGrowthWeek10} trees is ${requiredAreaFor100} square meters for ${week} weeks`);
-const radiusFor100 = Math.sqrt(requiredAreaFor100/PI).toFixed();
-console.log(`with the radius of ${radiusFor100}`,'\n','\n','\n');
+const radiusFor100 = Math.sqrt(requiredAreaFor100 / PI).toFixed();
+console.log(`with the radius of ${radiusFor100}`, '\n', '\n', '\n');
 
+// The scientists decided not to listen to your recommendations, and have instead started with 100
+// plants in the original 5-meter-radius garden
 console.log('PART 3');
 try {
-    
+    if (area * 0.8 > plantNumber) {
+        console.log('plant more!🌴', '\n', '\n', '\n');
+        // console.log('plants to prune! ☠️','\n','\n','\n')
+    } else if (plantNumber > area * 0.8) {
+        throw "Number of Plants Exceeds the space available"
+    }
 } catch (error) {
-    
+    console.log(error)
 }
